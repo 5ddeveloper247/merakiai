@@ -4,6 +4,7 @@
     'customTitle' => 'Register',
     'customCSSPath' => asset('assets/bootstrap/css/login.css'),
 ])
+<link rel="stylesheet" href="{{ asset('assets/bootstrap/css/toastr.min.css') }}">
 
 <body>
     <div class="container login-container">
@@ -94,6 +95,12 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
         crossorigin="anonymous"></script>
     <script src="{{ asset('assets/bootstrap/js/toastr.min.js') }}"></script>
+    <script>
+        @if (Session::has('success'))
+            // Display the success message using Toastr
+            toastr.success('{{ Session::get('success') }}');
+        @endif
+    </script>
     {{-- <script>
         $(document).ready(function() {
             $(".button").click(function(e) {

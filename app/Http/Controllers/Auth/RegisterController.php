@@ -52,7 +52,7 @@ class RegisterController extends Controller
     {
         // dd($data['phone']);
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z]+$/'],
+            'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['required', 'string', 'max:14', 'min:11', 'unique:users'],
             'password' => ['required', 'string', 'max:8', 'regex:/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{1,8}$/', 'confirmed'],
@@ -67,7 +67,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        Session::flash('message', 'You have successfully registered, Go to login');
+        Session::flash('success', 'You have successfully registered, Go to login');
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
