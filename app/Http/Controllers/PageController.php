@@ -48,6 +48,16 @@ class PageController extends Controller
         $data['customTitle'] = "Dashboard";
         return view("pages.chat-dashboard")->with($data);
     }
+    public function changePassword()
+    {
+        $data['customTitle'] = "Change Password";
+        return view("pages.change-password")->with($data);
+    }
+    public function otpViewer()
+    {
+        $data['customTitle'] = "OTP";
+        return view("pages.otp")->with($data);
+    }
     public function forgetPassword()
     {
         $data['customTitle'] = "Forget Password";

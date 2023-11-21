@@ -1,5 +1,11 @@
-@extends('includes.master')
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+@include('includes.header', [
+    'customTitle' => 'Register',
+    'customCSSPath' => asset('assets/bootstrap/css/login.css'),
+])
+
+<body>
     <div class="container login-container">
         <div class="cover">
             <div class="front">
@@ -14,7 +20,7 @@
         <div class="forms">
             <div class="form-content">
                 <div class="signup-form">
-                    <div class="title">Change Password</div>
+                    <div class="title">Change Password </div>
                     <form action="#">
                         <div class="input-boxes">
 
@@ -39,4 +45,4 @@
             </div>
         </div>
     </div>
-@endsection
+</body>

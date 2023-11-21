@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
-
+use App\Http\Controllers\Auth\ForgotPasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [PageController::class, "index"])->name("index");
+Route::get('/change-password', [PageController::class, "changePassword"])->name("change-password");
+Route::get('/otp', [PageController::class, "otpViewer"])->name("otp");
 Route::get('/register', [PageController::class, "register"])->name("register");
 Route::get('/forget-password', [PageController::class, "forgetPassword"])->name("forget-password");
 Route::get('/login', [PageController::class, "login"])->name("login");
@@ -32,6 +34,5 @@ Route::get('/chat-dashboard', [PageController::class, "chatDasboard"])->name("ch
 Route::get('/plans', [PageController::class, "plans"])->name("plans");
 Route::get('/privacy-policy', [PageController::class, "privacyPolicy"])->name("privacy-policy");
 Route::get('/term-condition', [PageController::class, "termCondition"])->name("term-condition");
-Route::post('/forget-password', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-Route::post('/forget-password/verify', 'ForgotPasswordController@verifyOTP')->name('password.verify');
-Route::post('/change-password', 'ChangePasswordController@changePassword')->name('password.update');
+Route::post('/forget-password', [ForgotPasswordController::class, "verifyEmail"]);
+Route::post('/verify-otp', [ForgotPasswordController::class, "verifyOtp"])->name('verify-otp');

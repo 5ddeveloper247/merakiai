@@ -21,12 +21,18 @@
             <div class="form-content">
                 <div class="signup-form">
                     <div class="title">Forget Password</div>
-                    <form action="">
+                    <form action="{{ route('forget-password') }}" method="POST">
                         @csrf
                         <div class="input-boxes">
                             <div class="input-box">
                                 <i class="bi bi-envelope-fill"></i>
-                                <input type="text" placeholder="Enter your email" required />
+                                <input type="email" name="email" placeholder="Enter your email" />
+
+                                @if (session('error'))
+                                    <span class="invalid-feedback d-block">
+                                        <strong> {{ session('error') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             <div class="button input-box">
                                 <input type="submit" value="Submit" />

@@ -707,3 +707,50 @@ body {
 .form-content .input-box input.is-invalid {
   border-bottom: 2px solid red
 }
+
+/* OTP input styles */
+.otp-container,
+.email-otp-container {
+  display: flex;
+  /* justify-content: center; */
+  margin-top: 20px;
+}
+
+.otp-input,
+.email-otp-input {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.otp-input:focus,
+.email-otp-input:focus {
+  border-color: #007bff;
+}
+
+#verificationCode,
+#emailverificationCode {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#verificationCode:focus,
+#emailverificationCode:focus {
+  border-color: #007bff;
+}
+
+.email-otp {
+  margin-top: 25px;
+}
