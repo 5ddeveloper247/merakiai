@@ -140,8 +140,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-6">
-                        <form>
-
+                        <form action="" method="POST">
                             <div class="form-container">
                                 <div class="field-container">
                                     <label for="name">Name</label>
@@ -195,7 +194,7 @@
                 })
 
                 setTimeout(() => {
-                    window.location.href = 'plans'
+                    window.location.href = "login"
                 }, 3000);
             });
         });

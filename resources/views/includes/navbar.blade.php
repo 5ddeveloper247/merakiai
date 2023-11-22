@@ -33,23 +33,20 @@
           </ul>
           <div class="nav-right">
               @if (Auth::user())
-                  <a class="dropdown-item" href="{{ route('logout') }}"
-                      onclick="event.preventDefault();
-                           document.getElementById('logout-form').submit();">
-                      {{ __('Logout') }}
-                  </a>
-
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                       @csrf
                   </form>
                   <div class="dropdown dropdown-navbar">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                          data-bs-toggle="dropdown" aria-expanded="false">
-                          Dropdown button
+                      <button class=" dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                          aria-expanded="false">
+                          <img src="{{ asset('assets/images/profile-icon.svg') }}" alt="">
                       </button>
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                          <li><a class="dropdown-item" href="#">Action</a></li>
-                          <li><a class="dropdown-item" href="#">Another action</a></li>
+                          <li><a class="dropdown-item" href="#">Profile</a></li>
+                          <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                  onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">Logout
+                              </a></li>
                           <li><a class="dropdown-item" href="#">Something else here</a></li>
                       </ul>
                   </div>

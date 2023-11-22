@@ -21,16 +21,18 @@
             <div class="form-content">
                 <div class="signup-form">
                     <div class="title">Change Password </div>
-                    <form action="#">
+                    <form action="{{ route('change-password') }}" method="POST">
+                        @csrf
                         <div class="input-boxes">
 
                             <div class="input-box">
                                 <i class="bi bi-lock-fill"></i>
-                                <input type="password" placeholder="Enter your password" required />
+                                <input type="password" name="password" placeholder="Enter your password" required />
                             </div>
                             <div class="input-box">
                                 <i class="bi bi-lock-fill"></i>
-                                <input type="password" placeholder="Confirm your password" required />
+                                <input type="password" name="pasword_confirmation" placeholder="Confirm your password"
+                                    required />
                             </div>
 
                             <div class="button input-box">

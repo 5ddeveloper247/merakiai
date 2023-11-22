@@ -26,18 +26,24 @@
                         <input type="hidden" id="user_id" name="user_id">
                         <div class="otp-container">
                             <!-- Six input fields for OTP digits -->
-                            <input type="text" class="otp-input" name="one" pattern="\d" maxlength="1">
+                            <input type="text" class="otp-input" name="one" pattern="\d" maxlength="1"
+                                required>
                             <input type="text" class="otp-input" name="two" pattern="\d" maxlength="1"
-                                disabled>
+                                required disabled>
                             <input type="text" class="otp-input" name="three" pattern="\d" maxlength="1"
-                                disabled>
+                                required disabled>
                             <input type="text" class="otp-input" name="four" pattern="\d" maxlength="1"
-                                disabled>
+                                required disabled>
                             <input type="text" class="otp-input" name="five" pattern="\d" maxlength="1"
-                                disabled>
+                                required disabled>
                             <input type="text" class="otp-input" name="six" pattern="\d" maxlength="1"
-                                disabled>
+                                required disabled>
                         </div>
+                        @if (session('error'))
+                            <span class="invalid-feedback mt-3 d-block">
+                                <strong>{{ session('error') }}</strong>
+                            </span>
+                        @endif
 
                         <div class="button input-box">
                             <input type="submit" value="Submit" />
@@ -147,11 +153,16 @@
                 updateOTPValue(emailOtpInputs);
             });
         });
-        const userId = "{{ Session('userId') }}"
-        localStorage.setItem("userId", userId);
-        var user_id = localStorage.getItem("userId")
-        $('#user_id').val(user_id);
-        console.log(user_id)
+        var userId = "{{ Session('userId') }}";
+
+        var storage_user_id = localStorage.getItem("userId");
+
+        if (storage_user_id == '' || storage_user_id == null) {
+            localStorage.setItem("userId", userId);
+        }
+        // var user_id = localStorage.getItem("userId")
+        document.getElementById('user_id').value = storage_user_id;
+        console.log(user_id);
     </script>
 </body>
 

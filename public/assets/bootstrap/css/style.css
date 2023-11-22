@@ -4225,3 +4225,28 @@ footer {
 }
 
 /* chatbot css ends  */
+/* dropdown add in navbar starts */
+.dropdown.dropdown-navbar button {
+  background: inherit;
+  border: none;
+}
+
+.dropdown.dropdown-navbar button>img {
+  width: 43px;
+  height: 40px;
+}
+
+@media all and (min-width:992px) {
+
+  .dropdown.dropdown-navbar {
+    display: flex;
+    align-items: center;
+  }
+
+  .dropdown.dropdown-navbar .dropdown-menu {
+    right: 0;
+    left: initial;
+  }
+}
+
+/* dropdown add in navbar ends */

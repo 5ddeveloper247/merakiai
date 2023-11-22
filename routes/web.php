@@ -36,3 +36,4 @@ Route::get('/privacy-policy', [PageController::class, "privacyPolicy"])->name("p
 Route::get('/term-condition', [PageController::class, "termCondition"])->name("term-condition");
 Route::post('/forget-password', [ForgotPasswordController::class, "verifyEmail"]);
 Route::post('/verify-otp', [ForgotPasswordController::class, "verifyOtp"])->name('verify-otp');
+Route::post('/change-password', [ForgotPasswordController::class, "passwordChange"])->name("change-password");
